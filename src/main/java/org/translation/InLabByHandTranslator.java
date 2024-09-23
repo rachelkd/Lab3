@@ -22,10 +22,10 @@ public class InLabByHandTranslator implements Translator {
      * @param country the country
      * @return list of language abbreviations which are available for this country
      */
-
+    
     @Override
     public List<String> getCountryLanguages(String country) {
-        if (CANADA.equals(country)) {
+        if (country.equals(CANADA)) {
             return new ArrayList<>(List.of("de", "en", "zh"));
         }
         return new ArrayList<>();
