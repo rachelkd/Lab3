@@ -12,9 +12,7 @@ import java.util.Map;
  * This class provides the service of converting language codes to their names.
  */
 public class LanguageCodeConverter {
-
-    // TODO Task: pick appropriate instance variables to store the data necessary for this class
-    private final Map<String, String> lToC = new HashMap<String, String>();
+    private final Map<String, String> lToC = new HashMap<>();
     private final Map<String, String> cToL = new HashMap<>();
 
     /**
