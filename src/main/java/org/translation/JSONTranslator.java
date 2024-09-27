@@ -72,7 +72,7 @@ public class JSONTranslator implements Translator {
 
     @Override
     public String translate(String country, String language) {
-        if (c.containsKey(country) && !c.get(country).containsKey(language)) {
+        if (c.containsKey(country) && c.get(country).containsKey(language)) {
             return c.get(country).get(language);
         }
         return null;
