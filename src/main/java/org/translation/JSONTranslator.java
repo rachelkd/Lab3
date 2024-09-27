@@ -41,7 +41,7 @@ public class JSONTranslator implements Translator {
 
             for (int i = 0; i < jsonArray.length(); i++) {
                 JSONObject obj = jsonArray.getJSONObject(i);
-
+                String alpha3 = obj.getString("alpha3");
                 Map<String, String> lan = new HashMap<>();
                 for (String key : obj.keySet()) {
                     if ("alpha2".equals(key) || "alpha3".equals(key) || "id".equals(key)) {
@@ -49,7 +49,7 @@ public class JSONTranslator implements Translator {
                     }
                     lan.put(key, obj.getString(key));
                 }
-                c.put(obj.getString("alpha3"), lan);
+                c.put(alpha3, lan);
             }
         }
         catch (IOException | URISyntaxException ex) {

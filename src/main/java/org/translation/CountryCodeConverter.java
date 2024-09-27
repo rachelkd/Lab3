@@ -35,10 +35,10 @@ public class CountryCodeConverter {
             List<String> lines = Files.readAllLines(Paths.get(getClass()
                     .getClassLoader().getResource(filename).toURI()));
 
-            for (String line : lines) {
-                String[] arr = line.split("\n");
-                ctoCountry.put(arr[3].toLowerCase(), arr[1]);
-                countryToC.put(arr[1], arr[3].toLowerCase());
+            for (int i = 1; i < lines.size(); i++) {
+                String[] arr = lines.get(i).split("\t");
+                ctoCountry.put(arr[2].toLowerCase(), arr[0]);
+                countryToC.put(arr[0], arr[2].toLowerCase());
 
             }
 

@@ -33,10 +33,10 @@ public class LanguageCodeConverter {
         try {
             List<String> lines = Files.readAllLines(Paths.get(getClass()
                     .getClassLoader().getResource(filename).toURI()));
-            for (String line : lines) {
-                String[] parts = line.split("\n");
-                lToC.put(parts[1], parts[2]);
-                cToL.put(parts[2], parts[1]);
+            for (int i = 1; i < lines.size(); i++) {
+                String[] parts = lines.get(i).split("\t");
+                lToC.put(parts[0], parts[1]);
+                cToL.put(parts[1], parts[0]);
             }
         }
         catch (IOException | URISyntaxException ex) {
