@@ -12,9 +12,9 @@ import java.util.Map;
  * This class provides the service of converting country codes to their names.
  */
 public class CountryCodeConverter {
-
-    // TODO Task: pick appropriate instance variable(s) to store the data necessary for this class
-
+    private final Map<String, String> cToC = new HashMap<>();
+    private final Map<String, String> CToc = new HashMap<>();
+    }
 
     /**
      * Default constructor which will load the country codes from "country-codes.txt"
@@ -36,6 +36,12 @@ public class CountryCodeConverter {
                     .getClassLoader().getResource(filename).toURI()));
 
             // TODO Task: use lines to populate the instance variable(s)
+            for (String line : lines) {
+                String[] arr = line.split("\n");
+                cToC.put(arr[3].toLowerCase(), arr[1]);
+                CToc.put(arr[1], arr[3].toLowerCase());
+
+            }
 
         }
         catch (IOException | URISyntaxException ex) {
@@ -50,8 +56,7 @@ public class CountryCodeConverter {
      * @return the name of the country corresponding to the code
      */
     public String fromCountryCode(String code) {
-        // TODO Task: update this code to use an instance variable to return the correct value
-        return code;
+        return cToC.get(code);
     }
 
     /**
@@ -60,8 +65,7 @@ public class CountryCodeConverter {
      * @return the 3-letter code of the country
      */
     public String fromCountry(String country) {
-        // TODO Task: update this code to use an instance variable to return the correct value
-        return country;
+        return CToc.get(country);
     }
 
     /**
@@ -69,7 +73,6 @@ public class CountryCodeConverter {
      * @return how many countries are included in this code converter.
      */
     public int getNumCountries() {
-        // TODO Task: update this code to use an instance variable to return the correct value
-        return 0;
+        return cToC.size();
     }
 }
